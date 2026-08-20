@@ -1,0 +1,81 @@
+{
+  "build_info": {
+    "build_hash_sha256": "3907710ff8dc242bd37f1207342bd10498da7d38b4620ed4593271db35cb666f",
+    "build_id": "3907710ff8dc242b",
+    "build_id_version": "pulseguard-build-id-v1",
+    "feature_schema_version": "pulseguard-14-feature-schema-v1",
+    "file_count": 166,
+    "frozen_data_cutoff": "2026-04-30",
+    "global_random_seed": 42,
+    "optimisation_cache_version": "pulseguard-optimisation-cache-v5-deterministic",
+    "pipeline_cache_version": "pulseguard-model-pipeline-cache-v5-deterministic"
+  },
+  "default_output": {
+    "cache_key": "a1c2bbca7afdbe3d64c8a41e52a0bbd9f70d0c1c68f2c750c5f26eca7ad16916",
+    "dashboard_metrics": {
+      "buy_hold_return": 1.093104037188,
+      "isolation_forest_return": 1.122156433655,
+      "ml_overlay_return": 0.751524893047,
+      "peak_drawdown": -0.313114661743,
+      "pr_auc": 0.238731078702,
+      "precision": 0.207171314741,
+      "recall": 0.764705882353,
+      "roc_auc": 0.586384721674,
+      "severe_warning_rate": 0.687331536388,
+      "sharpe_ratio": 0.615848053745,
+      "validation_stability": 0.885161916007,
+      "zscore_baseline_return": 0.997731504534
+    },
+    "feature_cols": [
+      "return_1d",
+      "log_return",
+      "hl_range_pct",
+      "oc_return",
+      "zscore",
+      "rolling_volatility",
+      "volatility_ratio",
+      "volume_zscore",
+      "momentum_5d",
+      "momentum_20d",
+      "trend_gap",
+      "drawdown",
+      "consec_down",
+      "atr_pct"
+    ],
+    "feature_schema_version": "pulseguard-14-feature-schema-v1",
+    "frozen_data_cutoff": "2026-04-30",
+    "metrics": {
+      "f1": 0.326018808777,
+      "f2": 0.497131931166,
+      "pr_auc": 0.238731078702,
+      "precision": 0.207171314741,
+      "recall": 0.764705882353,
+      "roc_auc": 0.586384721674
+    },
+    "overlay_metrics": {
+      "average_exposure": 0.799363265306,
+      "buy_hold_max_drawdown": -0.33433709566,
+      "buy_hold_total_return": 1.093104037188,
+      "overlay_max_drawdown": -0.313114661743,
+      "overlay_sharpe": 0.615848053745,
+      "overlay_total_return": 0.751524893047,
+      "risk_reduction_days": 358
+    },
+    "probability_digest": "7c6521eb5ad61fe48998727d8ba85e8617ac5b22ae59de44a3996a7779e7b7e3",
+    "risk_counts": {
+      "High risk": 38,
+      "Low risk": 866,
+      "Low-medium risk": 34,
+      "Medium risk": 32,
+      "Severe risk": 255
+    },
+    "seed": 42,
+    "shape": [
+      1225,
+      34
+    ],
+    "validation_stability": 0.885161916007
+  },
+  "description": "Approved deterministic output for the default modelling path. Update intentionally when model logic, frozen data, or approved defaults change.",
+  "snapshot_schema_version": "pulseguard-deterministic-output-snapshot-v1"
+}

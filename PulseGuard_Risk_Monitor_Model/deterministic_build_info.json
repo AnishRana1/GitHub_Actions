@@ -1,0 +1,11 @@
+{
+  "build_hash_sha256": "3907710ff8dc242bd37f1207342bd10498da7d38b4620ed4593271db35cb666f",
+  "build_id": "3907710ff8dc242b",
+  "build_id_version": "pulseguard-build-id-v1",
+  "feature_schema_version": "pulseguard-14-feature-schema-v1",
+  "file_count": 166,
+  "frozen_data_cutoff": "2026-04-30",
+  "global_random_seed": 42,
+  "optimisation_cache_version": "pulseguard-optimisation-cache-v5-deterministic",
+  "pipeline_cache_version": "pulseguard-model-pipeline-cache-v5-deterministic"
+}

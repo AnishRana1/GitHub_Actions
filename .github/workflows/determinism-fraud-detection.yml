@@ -1,0 +1,51 @@
+name: Determinism Checker (Graph-Based_Financial_Fraud_Detection)
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+
+    env:
+      PYTHONHASHSEED: "0"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      BLIS_NUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+      VECLIB_MAXIMUM_THREADS: "1"
+      CUBLAS_WORKSPACE_CONFIG: ":4096:8"
+      TORCHDYNAMO_DISABLE: "1"
+      TORCH_COMPILE_DISABLE: "1"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: Graph-Based_Financial_Fraud_Detection/requirements.txt
+
+      - name: Install pinned dependencies
+        working-directory: Graph-Based_Financial_Fraud_Detection
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Check dependency compatibility
+        working-directory: Graph-Based_Financial_Fraud_Detection
+        run: pip check
+
+      - name: Check pinned dependency versions
+        working-directory: Graph-Based_Financial_Fraud_Detection
+        run: python check_dependency_versions.py
+
+      - name: Run determinism verifier
+        working-directory: Graph-Based_Financial_Fraud_Detection
+        run: python verify_determinism.py

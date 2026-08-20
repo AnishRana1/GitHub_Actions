@@ -1,0 +1,66 @@
+{
+  "selected_ticker": "AAPL",
+  "option_type": "put",
+  "ticker_universe": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL",
+    "TSLA",
+    "AMD",
+    "SPY",
+    "QQQ"
+  ],
+  "risk_free_rate": 0.045,
+  "search": {
+    "architecture": "global_expensive_then_ticker_specific_blend_calibration",
+    "total": 25,
+    "coarse": 20,
+    "fine": 5
+  },
+  "selection_metric": "validation_only_composite_score",
+  "best_selection_score": 86.85065697214307,
+  "best_validation_mae_reduction": 89.19773471390724,
+  "best_validation_rmse_reduction": 81.37414224136,
+  "test_metrics_report_only": {
+    "mae_reduction": 90.09417095796402,
+    "rmse_reduction": 83.25107735153384
+  },
+  "model_params": {
+    "xgb_n_estimators": 450,
+    "xgb_learning_rate": 0.02044947100199,
+    "xgb_max_depth": 7,
+    "xgb_min_child_weight": 1.157272396701941,
+    "xgb_subsample": 0.8675236843509259,
+    "xgb_colsample_bytree": 0.8032978749341514,
+    "xgb_reg_alpha": 0.00407985414105911,
+    "xgb_reg_lambda": 4.0260120834451865,
+    "xgb_early_stopping_rounds": 15,
+    "rf_n_estimators": 300,
+    "rf_max_depth": 20,
+    "rf_min_samples_leaf": 1,
+    "rf_min_samples_split": 2,
+    "rf_max_features": 0.937655417180515,
+    "knn_n_neighbors": 5,
+    "knn_weights": "distance",
+    "blend_xgb": 0.36408703546700594,
+    "blend_rf": 0.5711263484586592,
+    "blend_knn": 0.06478661607433484,
+    "ticker_calibration_l2": 14.940477118447127,
+    "ticker_calibration_cap_per_spot": 0.00230421269469599,
+    "ticker_calibration_min_samples": 20,
+    "ticker_calibration_enabled": true
+  },
+  "result_files": {
+    "csv": "optimisation_results/baked_global_local_optimisation_20260519_195958/put/AAPL_put/AAPL_put_ticker_specific_optimisation_results.csv",
+    "xlsx": "optimisation_results/baked_global_local_optimisation_20260519_195958/put/AAPL_put/AAPL_put_ticker_specific_optimisation_results.xlsx"
+  },
+  "loaded_from_baked_optimisation": true,
+  "baked_optimisation_dir": "/mnt/data/patchhop/Hybrid_Option_Pricer/optimisation_results/baked_global_local_optimisation_20260519_195958",
+  "combined_result_files": {
+    "csv": "/mnt/data/patchhop/Hybrid_Option_Pricer/optimisation_results/latest_full_optimisation_results.csv",
+    "xlsx": "/mnt/data/patchhop/Hybrid_Option_Pricer/optimisation_results/latest_full_optimisation_results.xlsx"
+  }
+}

@@ -1,0 +1,37 @@
+name: Determinism Checker (Hybrid_Option_Pricer)
+
+on:
+  schedule:
+    - cron: '15 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  determinism-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: Hybrid_Option_Pricer/requirements.txt
+
+      - name: Install dependencies
+        working-directory: Hybrid_Option_Pricer
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run deterministic measurement comparison in separate processes
+        working-directory: Hybrid_Option_Pricer
+        env:
+          PYTHONHASHSEED: '42'
+        run: |
+          python determinism_check.py --json > first_measurement.json
+          python determinism_check.py --json > second_measurement.json
+          diff -u first_measurement.json second_measurement.json
