@@ -7,15 +7,20 @@ on:
 
 jobs:
   keep-awake:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
 
     steps:
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
       - name: Install Playwright
         run: |
           python -m pip install --upgrade pip
-          pip install playwright==1.49.1
-          playwright install --with-deps chromium
+          python -m pip install playwright==1.49.1
+          python -m playwright install --with-deps chromium
 
       - name: Open app and wake if sleeping
         env:
